@@ -40,7 +40,9 @@ Hi! My name is [David Ma].
     Testing Button
 </button>
 <button class="Large Blue shiny button">Submit</button>
-
+<a href="https://docs.google.com/document/d/1aV7q2XLWMoSfFxrlIePGDWLTG4Zu4av9Y2jBH9-ywOU/edit?tab=t.0">
+    <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="Google Doc Button">
+</a>
 <br>
 
 ### Class Progress
