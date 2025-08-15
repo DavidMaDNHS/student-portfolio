@@ -35,6 +35,8 @@ Hi! My name is [Your Full Name].
     <span style="color: #FFFFFF">VSCODE</span>
 </a>
 <button>Interesting San Diego</button>
+<input type="button" value="Video Game Design">
+
 <br>
 
 ### Class Progress
