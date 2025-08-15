@@ -36,6 +36,9 @@ Hi! My name is [Your Full Name].
 </a>
 <button>Interesting San Diego</button>
 <input type="button" value="Video Game Design">
+<button class="[big] [Blue style] [Blue]">
+    Testing Button
+</button>
 
 <br>
 
