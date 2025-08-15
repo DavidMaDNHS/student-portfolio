@@ -39,6 +39,7 @@ Hi! My name is [David Ma].
 <button class="[big] [Blue style] [Blue]">
     Testing Button
 </button>
+<button class="Large Blue shiny button">Submit</button>
 
 <br>
 
