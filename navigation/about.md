@@ -36,7 +36,7 @@ Here are some of the places I’ve lived.
 
     var living_in_the_world = [
         {"flag": "f/fa/Flag_of_the_People%27s_Republic_of_China.svg", "greeting": "你好", "description": "Shanghai, China — Birth to 2017"},
-        {"flag": "f/f3/Flag_of_the_United_States.svg", "greeting": "Hello", "description": "San Diego, California — 2017 to present"},
+        {"flag": "a/a4/Flag_of_the_United_States.svg", "greeting": "Hello", "description": "San Diego, California — 2017 to present"},
     ];
 
     for (const location of living_in_the_world) {
