@@ -82,6 +82,16 @@ I’ve developed a lot of hobbies while growing up in both China and the U.S.:
 
 ---
 
+### Achievements 🏆
+
+Throughout my journey, I’ve worked hard to grow in both academics and hobbies, and I’m proud of a few milestones:
+
+- 🎨 **Art Competitions** — Won multiple San Diego–area art contests, showcasing my creativity and unique style.  
+- ♟️ **Chess Tournaments** — Competed and placed in several local tournaments, building strategy and focus.  
+- 🌟 **Personal Growth** — Learned to adapt to a new country and culture, while discovering passions that continue to inspire me every day.  
+
+---
+
 ### Closing
 
 My journey has been full of change — from Shanghai to San Diego — but I’ve learned to adapt, find new passions, and grow along the way.  
