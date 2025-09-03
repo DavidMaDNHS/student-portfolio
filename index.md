@@ -6,7 +6,7 @@ hide: true
 
 ### Me and Team
 
-Hi! My name is [David Ma].
+Hi! My name is David Ma.
 
 | Role         | Name     | Repo Location                       | Stream                | Repo Name |
 |--------------|----------|-------------------------------------|-----------------------|-----------|
