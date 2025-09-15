@@ -4,7 +4,7 @@ title: What I learned in CSP
 author: David Ma
 comments: True
 ---
-## Week 1
+## Week 1-4
 - We started by creating a Github account and an OpenCodingSociety account 
 - Then Accessed VSCode through the URL provided in class
 "VSCode.dev"
