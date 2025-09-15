@@ -5,7 +5,7 @@ github_username: DavidMaDNHS
 github_repo: "student" 
 baseurl: "/student" 
 future: true
-remote_theme: jekyll-theme-cayman
+remote_theme: jekyll/minima
 minima:
   skin: dark
   social_links:
