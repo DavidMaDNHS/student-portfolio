@@ -53,7 +53,7 @@ Hi! My name is David Ma.
 <a href="{{site.baseurl}}/turtle" class="button small" style="background-color: #2A7DB1">
     <span style="color: #000000">Turtle</span>
 </a>
-<a href="{{https://docs.google.com/document/d/1aV7q2XLWMoSfFxrlIePGDWLTG4Zu4av9Y2jBH9-ywOU/edit?tab=t.0}}/Google Doc" class="button big" style="background-color: #2ab150ff">
+<a href="https://docs.google.com/document/d/1aV7q2XLWMoSfFxrlIePGDWLTG4Zu4av9Y2jBH9-ywOU/edit?tab=t.0/Google Doc" class="button big" style="background-color: #2ab150ff">
     <span style="color: #000000">Google Doc Button</span>
 </a>
 <br>
