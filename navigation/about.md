@@ -8,7 +8,8 @@ comments: true
 
 ## My Story
 
-Here are some of the places I’ve lived.
+Here are some of the places I’ve lived.xx
+
 
 <style>
     .grid-container {
