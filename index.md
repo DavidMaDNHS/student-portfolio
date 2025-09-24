@@ -10,8 +10,8 @@ Hi! My name is David Ma.
 
 | Role         | Name     | Repo Location                       | Stream                | Repo Name |
 |--------------|----------|-------------------------------------|-----------------------|-----------|
-| Scrum Master | John     | github.com/jm1021/student           | upstream (OCS fork)   | student   |
-| Scrummer     | Torin    | github.com/torin/student            | downstream (fork)     | student   |
+| Scrum Master | Lilian     | github.com/LiliWuu/student           | upstream (OCS fork)   | student   |
+| Scrummer     | Rishabh    | github.com/Rishi4u12/student            | downstream (fork)     | student   |
 | Scrummer     | Avantika | github.com/avantika/student         | downstream (fork)     | student   |
 | Scrummer     | Aadit    | github.com/aaadit/student           | downstream (fork)     | student   |
 
