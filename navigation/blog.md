@@ -1,9 +1,10 @@
 ---
 layout: blogs 
-title: Setup Guide🚀 for New Windows Students!
+title: Blogs
 search_exclude: true
 permalink: /blogs/
 ---
+## Setup Guide🚀 for New Windows Students!
 ## Week 1-4🔧🔨
 Hi Windows Students!!!🎓 You got this!🚀🚀🚀
 - We started by creating a Github account and logging into the OpenCodingSociety, a powerful resource where you will use to guide your through for the rest of the year
@@ -54,31 +55,48 @@ Open Terminal by right clicking on Terminal in Taskbar and selecting Ubuntu 24.0
 Run these commands to set up your Ubuntu developer tools for the first time.
 
 mkdir opencs
+
 cd opencs
+
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
+
 git clone https://github.com/Open-Coding-Society/student.git
+
 cd student/
+
 ./scripts/activate_ubuntu.sh # prompts for your recently created WSL Ubuntu password
+
 ./scripts/activate.sh # prompts for Git UID and Personal Email
+
 ./scripts/venv.sh
+
 System Checks (Optional)
 Open Terminal by right clicking on Terminal in Taskbar and selecting Ubuntu 24.04
 
 Run these commands to verify your system setup and check installed tools.
 
 python --version
+
 pip --version
+
 ruby -v
+
 bundle -v
+
 gem --version
+
 git config --global --list
+
 Restarting a terminal
+
 Open Terminal by right clicking on Terminal in Taskbar and selecting Ubuntu 24.04
 
 Each time you open a new terminal session, run these commands to activate your environment and start working on the student project in VS Code.
 
 cd opencs/student
+
 source venv/bin/activate
+
 code .
 
 - Once you are done with all these, Congratulations! You have COMPLETED setting up your basic tools and are ready to start programming!
