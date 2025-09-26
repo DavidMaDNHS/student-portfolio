@@ -1,6 +1,7 @@
 ---
 layout: post
 title: About
+dscription: My Name is David! Here is my story and Portfolio!
 permalink: /about/
 comments: true
 ---
