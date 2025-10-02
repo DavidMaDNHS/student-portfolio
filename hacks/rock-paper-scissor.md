@@ -46,7 +46,7 @@ permalink: /hacks/rock-paper-scissor
     width: 90%;
     max-height: 80vh;      /* added */
     overflow-y: auto;      /* added */
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Arial', sans-serif;
     border: 3px solid gold;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
     text-align: center;
@@ -235,7 +235,7 @@ permalink: /hacks/rock-paper-scissor
   bg.update();  bg.draw(ctx);
   // Draw 'Animated Battle: OOP' text (smaller)
   ctx.save();
-  ctx.font = "bold 14px 'Press Start 2P', cursive";
+  ctx.font = "bold 14px Arial, sans-serif";
   ctx.fillStyle = "cyan";
   ctx.textAlign = "center";
   ctx.fillText("Animated Battle: OOP", battleCanvas.width/2, 24);
