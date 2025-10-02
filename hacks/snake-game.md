@@ -1,18 +1,9 @@
 ---
-layout: default
+layout: base
 title: Snake Game
 permalink: /hacks/snake-game
 description: Hunt cookies with your snake in cosmos!
 ---
-
-<!-- Top Navigation Bar -->
-<div style="display:flex; justify-content:center; gap:20px; padding:12px; background:#111; box-shadow:0 2px 8px rgba(0,0,0,0.5); position:sticky; top:0; z-index:1000;">
-    <a href="{{ site.baseurl }}/" style="color:white; text-decoration:none; font-weight:bold; padding:8px 12px; background:#4a20c9ff; border-radius:6px;">Home</a>
-    <a href="{{ site.baseurl }}/navigation/blog.md" style="color:white; text-decoration:none; font-weight:bold; padding:8px 12px; background:#327FC7; border-radius:6px;">Blogs</a>
-    <a href="{{ site.baseurl }}/navigation/search.md" style="color:white; text-decoration:none; font-weight:bold; padding:8px 12px; background:#7dc920ff; border-radius:6px;">Search</a>
-    <a href="{{ site.baseurl }}/navigation/about.md" style="color:white; text-decoration:none; font-weight:bold; padding:8px 12px; background:#FFD700; border-radius:6px;">About Me</a>
-</div>
-<br>
 
 <style>
 
