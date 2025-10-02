@@ -22,18 +22,19 @@ Hi! My name is David Ma.
 
 > Coding starts with tools, explore these tools and procedures with a click.
 
-<a href="https://github.com/Open-Coding-Society/student">
-    <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="GitHub">
-</a>
-<a href="https://open-coding-society.github.io/student">
-    <img src="https://img.shields.io/badge/GitHub%20Pages-327FC7?logo=github&logoColor=white" alt="GitHub Pages">
-</a>
-<a href="https://kasm.opencodingsociety.com/" class="button small" style="background-color: #6b4bd3ff">
-    KASM
-</a>
-<a href="https://vscode.dev/" class="button small" style="background-color: #d38a4bff">
-    <span style="color: #FFFFFF">VSCODE</span>
-</a>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <a href="https://github.com/Open-Coding-Society/student">
+        <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+    </a>
+    <a href="https://open-coding-society.github.io/student">
+        <img src="https://img.shields.io/badge/GitHub%20Pages-327FC7?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages">
+    </a>
+    <a href="https://kasm.nighthawkcodingsociety.com/">
+        <img src="https://img.shields.io/badge/KASM-0078D4?style=for-the-badge&logo=kasm&logoColor=white" alt="KASM">
+    </a>
+    <a href="https://vscode.dev/">
+        <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VSCode">
+    </a>
 <a href="https://cookiegame.org/zh/" target="_blank" 
    style="display:inline-block; padding:12px 25px; background-color:#FFD700; color:black; text-decoration:none; 
           font-size:18px; font-weight:bold; border-radius:8px; box-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700; 
@@ -58,12 +59,21 @@ Hi! My name is David Ma.
 
 ### Class Progress
 
-<a href="{{site.baseurl}}/snake" class="button small" style="background-color: #6b4bd3ff">
-    Snake Game
+> Here is my progress through coding, click to see these online
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <a href="{{site.baseurl}}/hacks/rock-paper-scissor" style="text-decoration: none;">
+    <div style="background-color: #4a20c9ff; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+        Rock Paper Scissors
+    </div>
+    </a>
+    <a href="{{site.baseurl}}/hacks/snake-game" style="text-decoration: none;">
+    <div style="background-color: #7dc920ff; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+        Snake Game
+    </div>
 </a>
-<a href="{{site.baseurl}}/turtle" class="button small" style="background-color: #2A7DB1">
-    <span style="color: #000000">Turtle</span>
-</a>
+</div>
+
 <br>
 
 <!-- Contact Section -->
