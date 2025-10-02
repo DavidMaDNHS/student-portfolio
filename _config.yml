@@ -2,8 +2,8 @@ title: Open Coding
 description: "Class of 2026"
 owner_name: David Ma
 github_username: DavidMaDNHS 
-github_repo: "student" 
-baseurl: "/student" 
+github_repo: "student-portfolio" 
+baseurl: "/student-portfolio" 
 future: true
 remote_theme: jekyll/minima
 minima:
