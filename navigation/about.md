@@ -89,7 +89,7 @@ I’ve developed a lot of hobbies while growing up in both China and the U.S.:
 
 <div style="display:flex; justify-content:center; gap:15px; flex-wrap:nowrap; margin-bottom:20px; align-items:center;">
   <img src="{{ '/images/about/Acookie.jpg' | relative_url }}" alt="Cookie" style="width:150px; border-radius:8px;">
-  <img src="{{ '/images/about/Asushi.jpg' | relative_url }}" alt="Sushi" style="width:150px; border-radius:8px;">
+  <img src="{{ '/images/about/Asushi.jpg' | relative_url }}" alt="Sushi" style="width:300px; border-radius:16px;">
   <img src="{{ '/images/about/Ajjamppong.jpg' | relative_url }}" alt="Jjamppong" style="width:150px; border-radius:8px;">
 </div>
 
