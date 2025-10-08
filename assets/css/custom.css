@@ -1,0 +1,8 @@
+/* Global background image */
+body {
+  background-image: url("/student-portfolio/images/1nebulla.jpg");
+  background-size: cover;       /* Fill the page */
+  background-repeat: no-repeat; /* Don’t tile */
+  background-attachment: fixed; /* Stays fixed when scrolling */
+  background-position: center;  /* Center the image */
+}
