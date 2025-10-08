@@ -41,17 +41,14 @@ Hi! My name is David Ma.
               transition: all 0.3s; cursor:pointer;">
         🍪 Click if you love Cookies! 🍪
     </a>
-
     <input type="button" value="Video Game Design🎮" 
            onclick="window.open('https://discord.gg/MF35TPUG', '_blank')" 
            style="padding:12px 25px; font-size:16px; background-color:#FFD700; color:black; border:none; border-radius:8px; cursor:pointer; 
                   box-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700, 0 0 45px #FFD700; transition: all 0.3s;">
-
     <a href="https://www.chess.com" target="_blank" 
        style="display:inline-block; padding:12px 25px; background-color:#6B8E23; color:white; text-decoration:none; font-size:18px; font-weight:bold; border-radius:8px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: all 0.2s;">
         ♟️ Click here if you love chess!
     </a>
-
     <a href="https://docs.google.com/document/d/1aV7q2XLWMoSfFxrlIePGDWLTG4Zu4av9Y2jBH9-ywOU/edit?tab=t.0" target="_blank">
         <img src="https://img.shields.io/badge/My%20CSP%20resources-4CAF50?style=for-the-badge&logo=google&logoColor=white" alt="My CSP resources">
     </a>
