@@ -84,6 +84,26 @@ I’ve developed a lot of hobbies while growing up in both China and the U.S.:
 
 ---
 
+<!-- 🦐 Favorite Food 🍪 -->
+<h2 style="text-align:center; margin-top: 10px;">🦐 Favorite Food 🍪</h2>
+
+<div style="display:flex; justify-content:center; gap:15px; flex-wrap:nowrap; margin-bottom:20px; align-items:center;">
+  <img src="{{ '/images/about/Acookie.jpg' | relative_url }}" alt="Cookie" style="width:150px; border-radius:8px;">
+  <img src="{{ '/images/about/Asushi.jpg' | relative_url }}" alt="Sushi" style="width:150px; border-radius:8px;">
+  <img src="{{ '/images/about/Ajjamppong.jpg' | relative_url }}" alt="Jjamppong" style="width:150px; border-radius:8px;">
+</div>
+
+### Favorite Food
+
+- 🍜🌶️🦀Jjamppong(Korean Spicy Seafood Noodles)
+- 🍲Italian style Zuppa Toscana Soup
+- 🍪Chocolate Chip Cookies
+- 🍣Sushi
+- 🍛Japanese Curry
+- 🍗Kentucky Fried Chicken
+
+---
+
 <!-- 🎨 ACCOMPLISHMENTS -->
 <h2 style="text-align:center; margin-top: 10px;">Accomplishments</h2>
 
