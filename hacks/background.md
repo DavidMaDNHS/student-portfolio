@@ -11,6 +11,19 @@ permalink: /background
 <!--HTML for where game is stored -->
 <canvas id="world"></canvas>
 
+<style>
+  /* Make sure canvas covers the whole viewport and is behind other content */
+  #world {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    display: block;
+  }
+</style>
+
 <script>
   const canvas = document.getElementById("world");
   const ctx = canvas.getContext('2d');
@@ -50,22 +63,23 @@ permalink: /background
 
     class Background extends GameObject {
       constructor(image, gameWorld) {
-        // Fill entire canvas
-        super(image, gameWorld.width, gameWorld.height, 0, 0, 0.1);
+        super(image, gameWorld.width, gameWorld.height, 0, 0, 0.5);
       }
       update() {
-        this.x = (this.x - this.speed) % this.width;
+        this.x = (this.x + this.speed) % this.width;
       }
       draw(ctx) {
+        // Draw first copy
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-        ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.height);
+        // Draw second copy shifted to fill gap
+        ctx.drawImage(this.image, this.x - this.width, this.y, this.width, this.height);
       }
     }
 
     class Player extends GameObject {
       constructor(image, gameWorld) {
-        const width = image.naturalWidth / 2;
-        const height = image.naturalHeight / 2;
+        const width = image.naturalWidth;
+        const height = image.naturalHeight;
         const x = (gameWorld.width - width) / 2;
         const y = (gameWorld.height - height) / 2;
         super(image, width, height, x, y);
@@ -73,16 +87,13 @@ permalink: /background
         this.frame = 0;
       }
       update() {
-        this.y = this.baseY + Math.sin(this.frame * 0.05) * 20;
+        this.y = this.baseY + Math.sin(this.frame * 0.05) * 10;
         this.frame++;
       }
     }
-/* Game World is master class/object for the entire game
-* the game loop is inside 
-*/
+
     class GameWorld {
       static gameSpeed = 5;
-      // images enter the world
       constructor(backgroundImg, spriteImg) {
         this.canvas = document.getElementById("world");
         this.ctx = this.canvas.getContext('2d');
@@ -95,13 +106,11 @@ permalink: /background
         this.canvas.style.position = 'absolute';
         this.canvas.style.left = `0px`;
         this.canvas.style.top = `${(window.innerHeight - this.height) / 2}px`;
-//Game objects are created
         this.objects = [
          new Background(backgroundImg, this),
          new Player(spriteImg, this)
         ];
       }
-      // This keeps game alive and running
       gameLoop() {
         this.ctx.clearRect(0, 0, this.width, this.height);
         for (const obj of this.objects) {
@@ -116,6 +125,6 @@ permalink: /background
     }
 
     const world = new GameWorld(backgroundImg, spriteImg);
-    // starts the game world
     world.start();
   }
+</script>
