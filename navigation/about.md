@@ -1,16 +1,15 @@
 ---
 layout: post
 title: About
-dscription: My Name is David! Here is my story and Portfolio!
+description: My Name is David! Here is my story and Portfolio!
 permalink: /about/
 comments: true
 ---
 
-
 ## My Story
+Hi! I am David Ma! Welcome to my ABOUT PAGE!
 
-Here are some of the places I’ve lived.xx
-
+Here are some of the places I’ve lived.
 
 <style>
     .grid-container {
@@ -85,6 +84,14 @@ I’ve developed a lot of hobbies while growing up in both China and the U.S.:
 
 ---
 
+<!-- 🎨 ACCOMPLISHMENTS -->
+<h2 style="text-align:center; margin-top: 10px;">Accomplishments</h2>
+
+<div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:20px; align-items:flex-start;">
+  <img src="{{ '/images/about/Artaccomplishment1.jpg' | relative_url }}" alt="Art Accomplishment 1" style="width:auto; max-width:300px; border-radius:8px;">
+  <img src="{{ '/images/about/Artaccomplishment2.jpg' | relative_url }}" alt="Art Accomplishment 2" style="width:auto; max-width:300px; border-radius:8px;">
+</div>
+
 ### Achievements 🏆
 
 Throughout my journey, I’ve worked hard to grow in both academics and hobbies, and I’m proud of a few milestones:
@@ -94,6 +101,14 @@ Throughout my journey, I’ve worked hard to grow in both academics and hobbies,
 - 🌟 **Personal Growth** — Learned to adapt to a new country and culture, while discovering passions that continue to inspire me every day.  
 
 ---
+
+### Nature
+I also love the Nature and its wonderful landscapes!
+
+<!-- 🌿 Nature Photo -->
+<div style="text-align:center; margin:30px 0;">
+  <img src="{{ '/images/about/ANature.jpg' | relative_url }}" alt="Nature Photo">
+</div>
 
 ### Closing
 
