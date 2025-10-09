@@ -1,7 +1,7 @@
 /* Global background image */
 body {
   font-weight: bold;
-  background-image: url("/student-portfolio/images/galaxy.jpg");
+  background-image: url("/student-portfolio/images/about/Amountain3.jpg");
   background-size: cover;       /* Fill the page */
   background-repeat: no-repeat; /* Don’t tile */
   background-attachment: fixed; /* Stays fixed when scrolling */
