@@ -16,7 +16,17 @@ permalink: /blogs/
 ## Sprint 2
 - Worked with teammate on 3.15 Random Values Lesson 
 
-Link to 3.15 Random Value Lesson: 
+## 3.15 Random Value Lesson
+Lesson 1 Peusdocode: https://davidmadnhs.github.io/student-portfolio/3.15/level1-pseudocode
+
+Lesson 2 Python: https://davidmadnhs.github.io/student-portfolio/3.15/level2-python
+
+Lesson 3 JavaScript: https://davidmadnhs.github.io/student-portfolio/3.15/level3-javascript
+
+JS HW: https://davidmadnhs.github.io/student-portfolio/3.15/homework/javascript
+
+Python HW: https://davidmadnhs.github.io/student-portfolio/3.15/homework/python
+
 
 Fundmentals HW Link: https://github.com/DavidMaDNHS/student-portfolio/issues/5
 
