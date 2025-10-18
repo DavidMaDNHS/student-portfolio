@@ -27,7 +27,7 @@ JS HW: https://davidmadnhs.github.io/student-portfolio/3.15/homework/javascript
 
 Python HW: https://davidmadnhs.github.io/student-portfolio/3.15/homework/python
 
-
+- Sprint 2 HW
 Fundmentals HW Link: https://github.com/DavidMaDNHS/student-portfolio/issues/5
 
 ## Sprint 3
