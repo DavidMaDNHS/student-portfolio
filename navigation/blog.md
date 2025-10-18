@@ -16,3 +16,9 @@ permalink: /blogs/
 ## Sprint 2
 - Worked with teammate on 3.15 Random Values Lesson 
 
+Link to 3.15 Random Value Lesson: 
+
+Fundmentals HW Link: https://github.com/DavidMaDNHS/student-portfolio/issues/5
+
+## Sprint 3
+- Working with teammates on "digitalFamine", a game in a website to learn important skills 
