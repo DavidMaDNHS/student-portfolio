@@ -32,3 +32,5 @@ Fundmentals HW Link: https://github.com/DavidMaDNHS/student-portfolio/issues/5
 
 ## Sprint 3
 - Working with teammates on "digitalFamine", a game in a website to learn important skills 
+
+---
