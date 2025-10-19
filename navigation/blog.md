@@ -15,6 +15,9 @@ permalink: /blogs/
 
 ## Sprint 2
 - Worked with teammate on 3.15 Random Values Lesson 
+- Sprint 2 HW
+
+Fundmentals HW Link: https://github.com/DavidMaDNHS/student-portfolio/issues/5
 
 ## 3.15 Random Value Lesson
 Lesson 1 Peusdocode: https://davidmadnhs.github.io/student-portfolio/3.15/level1-pseudocode
@@ -26,9 +29,6 @@ Lesson 3 JavaScript: https://davidmadnhs.github.io/student-portfolio/3.15/level3
 JS HW: https://davidmadnhs.github.io/student-portfolio/3.15/homework/javascript
 
 Python HW: https://davidmadnhs.github.io/student-portfolio/3.15/homework/python
-
-- Sprint 2 HW
-Fundmentals HW Link: https://github.com/DavidMaDNHS/student-portfolio/issues/5
 
 ## Sprint 3
 - Working with teammates on "digitalFamine", a game in a website to learn important skills 
