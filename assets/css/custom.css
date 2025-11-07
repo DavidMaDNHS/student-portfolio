@@ -1,9 +1,6 @@
-/* Global background image */
+/* Global background color */
 body {
   font-weight: bold;
-  background-image: url("/student-portfolio/images/about/Amountain3.jpg");
-  background-size: cover;       /* Fill the page */
-  background-repeat: no-repeat; /* Don’t tile */
-  background-attachment: fixed; /* Stays fixed when scrolling */
-  background-position: center;  /* Center the image */
+  background-color: black; /* solid black background */
+  color: white; /* optional: make text visible on black */
 }
