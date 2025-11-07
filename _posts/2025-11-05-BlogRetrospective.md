@@ -111,7 +111,7 @@ This option is correct. The expression open parenthesis, open parenthesis, respo
 return false.
 - Q62: This option is correct. As any user has the ability to edit articles, there will be many opportunities for people with different perspectives to contribute.
 
-8. Something Cool to share
+# 8. Something Cool to share
 I wish I can learn enough skills to learn how to develop my own 3d video game, as I am good with 3d-modeling and animations. 
 
 ---
