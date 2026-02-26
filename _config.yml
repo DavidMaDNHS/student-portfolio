@@ -20,3 +20,10 @@ header_pages:
   - navigation/search.md
   - navigation/about.md
   - navigation/logintoolkit.md
+exclude:
+  - vendor
+  - .bundle
+  - .sass-cache
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
