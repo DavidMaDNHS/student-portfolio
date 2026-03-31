@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Chess Hub"
-description: "Master the board with our interactive tools."
+title: "Chess"
+description: "Improve at chess with our interactive tools."
 permalink: /chess/
 parent: "Chess Project"
 footer:
@@ -30,11 +30,14 @@ footer:
             justify-content: center;
         }
 
+        /* Increased z-index to ensure text and buttons are clickable */
         .container {
             text-align: center;
             padding: 20px;
             position: relative;
-            z-index: 10;
+            z-index: 100; 
+            width: 100%;
+            max-width: 600px;
         }
 
         .pieces-container {
@@ -44,7 +47,7 @@ footer:
             width: 100%;
             height: 100%;
             z-index: 0;
-            pointer-events: none;
+            pointer-events: none; /* Prevents background pieces from blocking clicks */
         }
 
         .piece {
@@ -90,11 +93,65 @@ footer:
             text-decoration: none;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            margin-bottom: 30px;
         }
 
         .start-button:hover {
             transform: scale(1.1);
             box-shadow: 0 0 30px gold;
+        }
+
+        /* Suggestions Box Styling */
+        #microblog-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #ffd700;
+            text-align: left;
+            backdrop-filter: blur(10px);
+            margin-top: 20px;
+        }
+
+        .blog-header {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .blog-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        #blogInput {
+            flex-grow: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ffd700;
+            background: rgba(255, 255, 255, 0.95);
+            font-family: inherit;
+            color: #333;
+        }
+
+        #postBtn {
+            background: #ffd700;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #1e391a;
+        }
+
+        #commentList {
+            max-height: 150px;
+            overflow-y: auto;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
         }
 
         .knight-rider {
@@ -105,6 +162,7 @@ footer:
             z-index: 5;
             color: #ffd700;
             filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+            pointer-events: none;
         }
 
         @keyframes drive {
@@ -125,9 +183,24 @@ footer:
         <a href="{{ site.baseurl }}/chess/helper/" class="start-button">
             Start Your Training
         </a>
+
+        <div id="microblog-container">
+            <div class="blog-header">
+                <span>Suggestions</span>
+                <span id="clearNotes" style="font-size: 0.7rem; cursor: pointer; text-decoration: underline; opacity: 0.7;">Clear All</span>
+            </div>
+            
+            <div class="blog-input-group">
+                <input type="text" id="blogInput" placeholder="Log a suggestion...">
+                <button id="postBtn">Post</button>
+            </div>
+
+            <div id="commentList"></div>
+        </div>
     </div>
 
     <script>
+        // Falling Pieces Logic
         const piecesContainer = document.getElementById('pieces');
         const chessIcons = ['♙', '♘', '♗', '♖', '♕', '♔', '♟', '♞', '♝', '♜', '♛', '♚'];
         
@@ -141,6 +214,49 @@ footer:
             piece.style.fontSize = (Math.random() * 2 + 1) + 'rem';
             piecesContainer.appendChild(piece);
         }
+
+        // Suggestions Logic
+        const blogInput = document.getElementById('blogInput');
+        const postBtn = document.getElementById('postBtn');
+        const commentList = document.getElementById('commentList');
+        const clearBtn = document.getElementById('clearNotes');
+
+        window.onload = () => {
+            const saved = JSON.parse(localStorage.getItem('chessSuggestions')) || [];
+            saved.forEach(note => renderNote(note.text, note.time));
+        };
+
+        function renderNote(text, time) {
+            const div = document.createElement('div');
+            div.style.padding = "10px 0";
+            div.style.borderBottom = "1px solid rgba(255,215,0,0.1)";
+            div.style.display = "flex";
+            div.style.justifyContent = "space-between";
+            div.innerHTML = `<span style="color:white; font-size:0.9rem;">${text}</span>
+                             <small style="color:#ffd700; opacity:0.6;">${time}</small>`;
+            commentList.prepend(div);
+        }
+
+        postBtn.onclick = () => {
+            const val = blogInput.value.trim();
+            if(!val) return;
+            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            renderNote(val, time);
+            
+            const saved = JSON.parse(localStorage.getItem('chessSuggestions')) || [];
+            saved.push({text: val, time: time});
+            localStorage.setItem('chessSuggestions', JSON.stringify(saved));
+            blogInput.value = "";
+        };
+
+        blogInput.onkeypress = (e) => { if(e.key === "Enter") postBtn.click(); };
+
+        clearBtn.onclick = () => {
+            if(confirm("Clear all suggestions?")) {
+                localStorage.removeItem('chessSuggestions');
+                commentList.innerHTML = "";
+            }
+        };
     </script>
 </body>
 </html>
