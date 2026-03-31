@@ -4,6 +4,7 @@ layout: post
 permalink: /progress/
 description: 2025-2026 Sprints and CPT
 ---
+
 # 2025-2026 Progress
 
 ## Sprint 1

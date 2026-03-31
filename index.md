@@ -18,6 +18,14 @@ Hi! My name is David Ma.
 
 ## Links to Progress 2025-2026
 
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+  <a href="{{site.baseurl}}/progress/" style="text-decoration: none;">
+    <div style="background-color: rgb(201, 187, 32); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+      Progress 2025-2026
+    </div>
+  </a>
+</div>  
+
 ### Development Environment
 
 > Progress in beginning of the year
