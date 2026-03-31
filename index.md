@@ -11,10 +11,10 @@ Hi! My name is David Ma.
 
 | Sprint         | Name     | Links                       |
 |--------------|----------|-------------------------------------|-----------------------|-----------|
-| #1 | "Snake" and "RPS" Game  |   Project: https://github.com/DavidMaDNHS/student-portfolio/issues/3   |
-| #2 | Sprint 2 HW and Lesson 3.15  |   HW: https://github.com/DavidMaDNHS/student-portfolio/issues/5,   |
-| #4-6 | NYC Trip Planner |   Project: https://vivianzhang85.github.io/Insightful-Innovators-/nyc/home/   |
-| CPT | "Chess Helper"(currently)    |   Project: https://davidmadnhs.github.io/student-portfolio/chess/   |
+| #1 | "Snake" and "RPS" Game  |   https://github.com/DavidMaDNHS/student-portfolio/issues/3   |
+| #2 | Sprint 2 HW and Lesson 3.15  |   https://github.com/DavidMaDNHS/student-portfolio/issues/5   |
+| #4-6 | NYC Trip Planner |   https://vivianzhang85.github.io/Insightful-Innovators-/nyc/home/   |
+| CPT | "Chess Helper"(currently)    |   https://davidmadnhs.github.io/student-portfolio/chess/   |
 
 ## Links to Progress 2025-2026
 
