@@ -1,3 +1,11 @@
+To add a "Contact Us" feature to your home page without interfering with the centered "Chess Cosmos" layout, we can use a slide-out drawer or a sidebar attached to the left edge of the screen.
+
+Since you mentioned you want to receive the email, I've added a form that uses Formspree. It's a free service that lets you receive form submissions as emails without needing a backend server.
+
+Updated Home Page Code
+Replace your current code with this version. It adds the "Contact" button on the left and the hidden contact panel.
+
+HTML
 ---
 layout: post
 title: "Chess"
@@ -30,7 +38,87 @@ footer:
             justify-content: center;
         }
 
-        /* Increased z-index to ensure text and buttons are clickable */
+        /* Sidebar Contact Styling */
+        #contactSidebar {
+            position: fixed;
+            left: -320px; /* Hidden by default */
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            border-right: 2px solid #ffd700;
+            transition: 0.4s;
+            z-index: 1000;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+        }
+
+        #contactSidebar.active {
+            left: 0;
+        }
+
+        .contact-toggle {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ffd700;
+            color: #1e391a;
+            padding: 15px 10px;
+            cursor: pointer;
+            border-radius: 0 10px 10px 0;
+            font-weight: bold;
+            z-index: 999;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transition: 0.3s;
+        }
+
+        .contact-toggle:hover {
+            padding-left: 20px;
+        }
+
+        /* Contact Form Styling */
+        #contactSidebar h2 { color: #ffd700; margin-bottom: 20px; text-align: center; }
+        
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea { height: 100px; resize: none; }
+
+        .submit-contact {
+            width: 100%;
+            padding: 12px;
+            background: #ffd700;
+            color: #1e391a;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .submit-contact:hover { background: #fff; }
+
+        .close-contact {
+            color: #ffd700;
+            text-align: right;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* Original Center Content Styling */
         .container {
             text-align: center;
             padding: 20px;
@@ -47,7 +135,7 @@ footer:
             width: 100%;
             height: 100%;
             z-index: 0;
-            pointer-events: none; /* Prevents background pieces from blocking clicks */
+            pointer-events: none;
         }
 
         .piece {
@@ -101,7 +189,6 @@ footer:
             box-shadow: 0 0 30px gold;
         }
 
-        /* Suggestions Box Styling */
         #microblog-container {
             background: rgba(0, 0, 0, 0.6);
             padding: 20px;
@@ -172,8 +259,20 @@ footer:
     </style>
 </head>
 <body>
-    <div class="pieces-container" id="pieces"></div>
+    <div class="contact-toggle" onclick="toggleContact()">CONTACT US</div>
+    <div id="contactSidebar">
+        <div class="close-contact" onclick="toggleContact()">✕ CLOSE</div>
+        <h2>Support Hub</h2>
+        
+        <form class="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <input type="text" name="suggestions" placeholder="Any suggestions?">
+            <button type="submit" class="submit-contact">Send Transmission</button>
+        </form>
+    </div>
 
+    <div class="pieces-container" id="pieces"></div>
     <div class="knight-rider">♞</div> 
     
     <div class="container">
@@ -200,6 +299,10 @@ footer:
     </div>
 
     <script>
+        function toggleContact() {
+            document.getElementById('contactSidebar').classList.toggle('active');
+        }
+
         // Falling Pieces Logic
         const piecesContainer = document.getElementById('pieces');
         const chessIcons = ['♙', '♘', '♗', '♖', '♕', '♔', '♟', '♞', '♝', '♜', '♛', '♚'];
