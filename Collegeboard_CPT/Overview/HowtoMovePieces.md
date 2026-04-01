@@ -6,9 +6,11 @@ permalink: /chess/HTMP/
 
 
 # ♟ How to Move Pieces
+
 This module provides a comprehensive guide to the unique mechanical capabilities of each chess piece, ensuring a complete understanding of how to navigate the board with precision. The curriculum details the specific movement patterns and capture rules for every unit, ranging from the foundational pawn to the multifaceted queen. By mastering these essential mechanics, a student establishes the necessary groundwork for executing the complex strategies and tactical maneuvers presented in the advanced training sections.
 
 # The Pieces
+
 The Pawn: This unit advances one square forward at a time, though it maintains the unique privilege of moving two squares on its initial departure from the starting rank. It captures exclusively on the forward diagonals and is the only piece capable of "Promotion," where reaching the furthest rank allows it to transform into any other piece, typically the Queen.
 
 The Rook: Operating as a heavy long-range power, the rook traverses any number of squares horizontally or vertically. It is instrumental in the "Castling" maneuver, a special rule where the King and Rook move toward each other to secure the King’s safety and activate the Rook for battle.
@@ -22,6 +24,7 @@ The Queen: As the most formidable asset in a player’s arsenal, the queen combi
 The King: The king is the most vital piece, as its capture results in the immediate conclusion of the match. While limited to moving only one square in any direction, the king must be protected at all costs, and it cannot move into any square where it would be under direct attack by an opponent's piece.
 
 # Essential Rules
+
 Check and Checkmate: A King is in "Check" when it is under direct attack; the player must immediately move the King, block the path, or capture the attacker. "Checkmate" occurs when the King is in check and there are no legal moves to escape, ending the game.
 
 En Passant: A specialized pawn capture that occurs when a pawn moves two squares forward from its starting position and lands horizontally adjacent to an opponent's pawn. The opponent may capture that pawn "in passing" as if it had only moved one square.
