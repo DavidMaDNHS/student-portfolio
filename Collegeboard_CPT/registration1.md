@@ -14,32 +14,74 @@ footer:
 <html lang="en">
 <head>
     <style>
-        /* 1. Reset all default margins/padding to force sidebar to the glass edge */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* 1. Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; border: none; }
 
         body { 
             font-family: 'Georgia', serif; 
             background: #1e391a; 
             color: white; 
-            display: flex;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden; /* Prevents weird scrollbars */
+            display: flex;
         }
 
-        /* 2. Sidebar - Locked to the absolute left boundary */
+        /* RIGHT-SIDE CONTACT PANEL */
+        #contactSidebar { 
+            position: fixed; 
+            right: -320px; 
+            top: 0; 
+            width: 300px; 
+            height: 100%; 
+            background: rgba(0, 0, 0, 0.98); 
+            border-left: 2px solid #ffd700; 
+            transition: 0.4s; 
+            z-index: 9999; 
+            padding: 25px; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        #contactSidebar.active { right: 0; }
+        
+        .close-contact { 
+            background: #4682B4 !important; 
+            color: white !important; 
+            padding: 14px; 
+            text-align: center; 
+            cursor: pointer; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            margin-top: 20px; 
+            margin-bottom: 30px; 
+            border: 1px solid rgba(255,255,255,0.3); 
+            text-transform: uppercase; 
+        }
+
+        .contact-toggle { 
+            position: fixed; 
+            right: 0; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            background: #ffd700; 
+            color: #1e391a; 
+            padding: 15px 10px; 
+            cursor: pointer; 
+            border-radius: 10px 0 0 10px; 
+            font-weight: bold; 
+            z-index: 1500; 
+            writing-mode: vertical-rl; 
+            text-orientation: mixed; 
+        }
+
+        /* 2. Left-Side Navigation Sidebar */
         .sidebar {
             width: 300px;
-            background: rgba(0, 0, 0, 0.9);
-            border-right: 2px solid #ffd700;
+            background: rgba(0, 0, 0, 0.95);
             padding: 30px 20px;
             display: flex;
             flex-direction: column;
-            position: fixed; /* Fixes it to the viewport */
-            left: 0;         /* Absolute left */
+            position: fixed;
+            left: 0;
             top: 0;
             height: 100vh;
             z-index: 100;
@@ -56,66 +98,76 @@ footer:
 
         .category-item {
             padding: 15px;
-            margin: 5px 0;
-            color: #eee;
+            margin: 8px 0;
+            color: #ffffff !important;
             text-decoration: none; 
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 215, 0, 0.3) !important; 
+            border-radius: 4px;
             transition: 0.3s;
             font-weight: bold;
             display: block;
+            text-align: center;
         }
+        .category-item:hover { background: #ffd700; color: #1e391a !important; }
 
-        .category-item:hover {
-            background: rgba(255, 215, 0, 0.2);
-            color: #ffd700;
-        }
-
-        /* 3. Main Content - Flex centering logic */
-        .main-content {
-            margin-left: 300px; /* Offset by sidebar width */
-            flex: 1;            /* Take up all remaining space */
-            display: flex;
-            justify-content: center; /* Horizontal center */
-            align-items: center;     /* Vertical center */
-            min-height: 100vh;
-            padding: 40px;
-        }
-
+        /* 3. ABSOLUTE SCREEN CENTER FOR THE BOX */
         .container { 
             background: rgba(0,0,0,0.85); 
-            padding: 40px; 
+            padding: 50px; 
             border-radius: 15px; 
             border: 2px solid #ffd700; 
             width: 100%;
-            max-width: 400px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            /* Ensures box doesn't move if content inside changes slightly */
-            flex-shrink: 0; 
+            max-width: 500px; 
+            box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+            
+            /* DEAD CENTER LOGIC */
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 50; /* Above background, below slide-out panels */
         }
 
-        h2, h3 { color: #ffd700; text-align: center; margin-bottom: 20px; }
-        
+        h2, h3 { color: #ffd700; text-align: center; margin-bottom: 25px; font-size: 2rem; }
         input, select { 
-            width: 100%; padding: 12px; margin: 10px 0; 
+            width: 100%; padding: 15px; margin: 12px 0; 
             border-radius: 8px; background: #222; color: white; 
-            border: 1px solid #444; font-size: 1rem;
+            border: 1px solid #444; font-size: 1.1rem;
         }
 
         .btn { 
-            background: #ffd700; color: #1e391a; padding: 15px; 
+            background: #ffd700; color: #1e391a; padding: 18px; 
             width: 100%; border: none; font-weight: bold; 
-            cursor: pointer; border-radius: 50px; margin-top: 15px;
-            transition: 0.3s;
+            cursor: pointer; border-radius: 50px; margin-top: 20px;
+            transition: 0.3s; font-size: 1.1rem;
         }
-        .btn:hover { transform: scale(1.02); background: #fff; }
+        .btn:hover { transform: scale(1.05); background: #fff; }
 
-        .status-msg { 
-            text-align: center; margin-top: 10px; font-weight: bold; color: #ffd700; 
-        }
+        .status-msg { text-align: center; margin-top: 15px; font-weight: bold; color: #ffd700; }
         .hidden { display: none; }
+
+        /* Support Form Styling */
+        .contact-form input, .contact-form textarea { 
+            width: 100%; padding: 12px; margin-bottom: 15px; background: #222 !important; border: 1px solid #444 !important; color: white !important; border-radius: 5px; 
+        }
+        .submit-contact { 
+            width: 100%; padding: 15px; background: #ffd700; color: #1e391a; border: none; font-weight: bold; cursor: pointer; border-radius: 5px; text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
+
+    <div class="contact-toggle" onclick="toggleContact()">CONTACT US</div>
+    <div id="contactSidebar">
+        <div class="close-contact" onclick="toggleContact()">✕ COLLAPSE PANEL</div>
+        <h2 style="color:#ffd700; text-align:center; margin-bottom:20px; font-size: 1.2rem;">Support Hub</h2>
+        <form class="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required style="height: 100px; width:100%; background:#222; color:white; padding:10px; border-radius:5px; margin-bottom:10px; border:1px solid #444;"></textarea>
+            <button type="submit" class="submit-contact">Send Transmission</button>
+        </form>
+    </div>
 
     <div class="sidebar">
         <h2>Chess Academy</h2>
@@ -127,43 +179,45 @@ footer:
         <a href="{{ site.baseurl }}/chess/overview/" class="category-item">📖 Tool Overview</a>
     </div>
 
-    <div class="main-content">
-        <div class="container" id="regBox">
-            <h2>Student Registration</h2>
-            <input type="text" id="regUser" placeholder="Create Username">
-            <input type="password" id="regPass" placeholder="Create Password">
-            <button class="btn" onclick="simulateRegistration()">Register Account</button>
-            <div id="regStatus" class="status-msg"></div>
-        </div>
+    <div class="container" id="regBox">
+        <h2>Student Registration</h2>
+        <input type="text" id="regUser" placeholder="Create Username">
+        <input type="password" id="regPass" placeholder="Create Password">
+        <button class="btn" onclick="simulateRegistration()">Register Account</button>
+        <div id="regStatus" class="status-msg"></div>
+    </div>
 
-        <div class="container hidden" id="loginBox">
-            <h2>Member Login</h2>
-            <input type="text" id="loginUser" placeholder="Username">
-            <input type="password" id="loginPass" placeholder="Password">
-            <button class="btn" onclick="checkLogin()">Login to Chess Hub</button>
-        </div>
+    <div class="container hidden" id="loginBox">
+        <h2>Member Login</h2>
+        <input type="text" id="loginUser" placeholder="Username">
+        <input type="password" id="loginPass" placeholder="Password">
+        <button class="btn" onclick="checkLogin()">Login to Chess Hub</button>
+    </div>
 
-        <div class="container hidden" id="quizBox">
-            <h3>♟️ Training Profile</h3>
-            <label>Skill Level:</label>
-            <select id="skillLevel">
-                <option value="">Select...</option>
-                <option value="Beginner">Beginner (0-800)</option>
-                <option value="Intermediate">Intermediate (800-1500)</option>
-                <option value="Advanced">Advanced (1500+)</option>
-            </select>
-            <label>Favorite Piece:</label>
-            <select id="favPiece">
-                <option value="">Select...</option>
-                <option value="Knight">Knight</option>
-                <option value="Bishop">Bishop</option>
-                <option value="Queen">Queen</option>
-            </select>
-            <button class="btn" onclick="saveAndProceed()">Next: Choose Lessons</button>
-        </div>
+    <div class="container hidden" id="quizBox">
+        <h3>♟️ Training Profile</h3>
+        <label>Skill Level:</label>
+        <select id="skillLevel">
+            <option value="">Select...</option>
+            <option value="Beginner">Beginner (0-800)</option>
+            <option value="Intermediate">Intermediate (800-1500)</option>
+            <option value="Advanced">Advanced (1500+)</option>
+        </select>
+        <label>Favorite Piece:</label>
+        <select id="favPiece">
+            <option value="">Select...</option>
+            <option value="Knight">Knight</option>
+            <option value="Bishop">Bishop</option>
+            <option value="Queen">Queen</option>
+        </select>
+        <button class="btn" onclick="saveAndProceed()">Next: Choose Lessons</button>
     </div>
 
     <script>
+        function toggleContact() { 
+            document.getElementById('contactSidebar').classList.toggle('active'); 
+        }
+
         let registeredUser = "";
         let registeredPass = "";
 

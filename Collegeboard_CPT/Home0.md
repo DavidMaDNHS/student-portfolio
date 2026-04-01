@@ -14,253 +14,116 @@ footer:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Cosmos</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, #2d5a27 0%, #1e391a 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Sidebar Contact Styling */
-        #contactSidebar {
-            position: fixed;
-            left: -320px; /* Hidden by default */
-            top: 0;
-            width: 300px;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            border-right: 2px solid #ffd700;
-            transition: 0.4s;
-            z-index: 1000;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 10px 0 30px rgba(0,0,0,0.5);
-        }
-
-        #contactSidebar.active {
-            left: 0;
-        }
-
-        .contact-toggle {
-            position: fixed;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #ffd700;
-            color: #1e391a;
-            padding: 15px 10px;
-            cursor: pointer;
-            border-radius: 0 10px 10px 0;
-            font-weight: bold;
-            z-index: 999;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            transition: 0.3s;
-        }
-
-        .contact-toggle:hover {
-            padding-left: 20px;
-        }
-
-        /* Contact Form Styling */
-        #contactSidebar h2 { color: #ffd700; margin-bottom: 20px; text-align: center; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            background: #222;
-            border: 1px solid #444;
-            color: white;
-            border-radius: 5px;
-            font-family: inherit;
+        body { 
+            font-family: 'Georgia', serif; 
+            overflow-x: hidden; 
+            background: #2d5a27; 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
         }
 
-        .contact-form textarea { height: 100px; resize: none; }
-
-        .submit-contact {
-            width: 100%;
-            padding: 12px;
-            background: #ffd700;
-            color: #1e391a;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .submit-contact:hover { background: #fff; }
-
-        .close-contact {
-            color: #ffd700;
-            text-align: right;
-            cursor: pointer;
-            margin-bottom: 10px;
-            font-size: 0.8rem;
-        }
-
-        /* Original Center Content Styling */
-        .container {
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            z-index: 100; 
-            width: 100%;
-            max-width: 600px;
-        }
-
-        .pieces-container {
+        .bg-gradient {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
-            pointer-events: none;
+            background: linear-gradient(135deg, #3d7a36 0%, #244d1f 100%);
+            z-index: -1;
         }
 
-        .piece {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.15);
-            font-size: 2.5rem;
-            user-select: none;
-            animation: fall linear infinite;
+        /* SIDEBAR & STEEL BLUE CLOSE BUTTON */
+        #contactSidebar { 
+            position: fixed; 
+            left: -320px; 
+            top: 0; 
+            width: 300px; 
+            height: 100%; 
+            background: rgba(0, 0, 0, 0.98); 
+            border-right: 2px solid #ffd700; 
+            transition: 0.4s; 
+            z-index: 9999; 
+            padding: 25px; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        #contactSidebar.active { left: 0; }
+        
+        .close-contact { 
+            background: #4682B4 !important; 
+            color: white !important; 
+            padding: 14px; 
+            text-align: center; 
+            cursor: pointer; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            margin-top: 70px; 
+            margin-bottom: 30px; 
+            border: 1px solid rgba(255,255,255,0.3); 
+            text-transform: uppercase; 
         }
 
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        .contact-toggle { position: fixed; left: 0; top: 50%; transform: translateY(-50%); background: #ffd700; color: #1e391a; padding: 15px 10px; cursor: pointer; border-radius: 0 10px 10px 0; font-weight: bold; z-index: 1500; writing-mode: vertical-rl; text-orientation: mixed; }
+
+        /* MAIN UI */
+        .container { text-align: center; z-index: 100; width: 100%; max-width: 600px; }
+        h1 { font-size: 5rem; color: #ffd700; margin-bottom: 10px; letter-spacing: 0.1em; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .subtitle { font-size: 1.8rem; color: white; margin-bottom: 40px; font-style: italic; }
+
+        /* UPDATED WARM GOLD BUTTON */
+        .start-button { 
+            display: inline-block; 
+            padding: 20px 50px; 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            color: #1e391a; 
+            background: #ffcc00; /* Comfortable Warm Yellow */
+            border-radius: 50px; 
+            text-decoration: none; 
+            transition: all 0.4s ease; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 2px solid #ffd700;
+        }
+        .start-button:hover { 
+            transform: scale(1.08); 
+            box-shadow: 0 0 25px #ffcc00, 0 0 50px rgba(255, 204, 0, 0.4); 
+            background: #ffd700; /* Shifts to the brighter gold, not white */
+            color: #000;
         }
 
-        h1 {
-            font-size: 5rem;
-            font-weight: bold;
-            color: #ffd700;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
-            letter-spacing: 0.1em;
-        }
+        /* SUGGESTIONS LOG */
+        #microblog-container { background: rgba(0, 0, 0, 0.85); padding: 20px; border-radius: 15px; border: 1px solid #ffd700; margin-top: 30px; text-align: left; }
+        .blog-header { color: #ffd700; font-weight: bold; display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .blog-input-group { display: flex; gap: 10px; }
+        #blogInput { flex-grow: 1; padding: 12px; border-radius: 5px; border: none; background: white; color: #333; font-weight: bold; }
+        #postBtn { padding: 10px 25px; background: #ffd700; border: none; font-weight: bold; cursor: pointer; border-radius: 5px; color: #1e391a; }
 
-        .subtitle {
-            font-size: 1.8rem;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin-bottom: 40px;
-            font-style: italic;
-        }
+        #commentList { max-height: 150px; overflow-y: auto; margin-top: 15px; color: white; }
+        .note-item { padding: 8px 0; border-bottom: 1px solid rgba(255,215,0,0.2); display: flex; justify-content: space-between; }
 
-        .start-button {
-            display: inline-block;
-            padding: 20px 50px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1e391a;
-            background: #ffd700;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
-        }
-
-        .start-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px gold;
-        }
-
-        #microblog-container {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #ffd700;
-            text-align: left;
-            backdrop-filter: blur(10px);
-            margin-top: 20px;
-        }
-
-        .blog-header {
-            color: #ffd700;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .blog-input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        #blogInput {
-            flex-grow: 1;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #ffd700;
-            background: rgba(255, 255, 255, 0.95);
-            font-family: inherit;
-            color: #333;
-        }
-
-        #postBtn {
-            background: #ffd700;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            color: #1e391a;
-        }
-
-        #commentList {
-            max-height: 150px;
-            overflow-y: auto;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        .knight-rider {
-            position: fixed;
-            bottom: 50px;
-            font-size: 4rem;
-            animation: drive 12s linear infinite;
-            z-index: 5;
-            color: #ffd700;
-            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
-            pointer-events: none;
-        }
-
-        @keyframes drive {
-            0% { left: -100px; }
-            100% { left: calc(100% + 100px); }
-        }
+        /* PIECES */
+        .pieces-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .piece { position: absolute; color: rgba(255, 255, 255, 0.2); font-size: 2.5rem; animation: fall linear infinite; }
+        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+        .knight-rider { position: fixed; bottom: 50px; font-size: 4rem; animation: drive 12s linear infinite; z-index: 5; color: #ffd700; pointer-events: none; }
+        @keyframes drive { 0% { left: -100px; } 100% { left: calc(100% + 100px); } }
     </style>
 </head>
 <body>
+    <div class="bg-gradient"></div>
     <div class="contact-toggle" onclick="toggleContact()">CONTACT US</div>
+    
     <div id="contactSidebar">
-        <div class="close-contact" onclick="toggleContact()">✕ CLOSE</div>
-        <h2>Support Hub</h2>
-        
-        <form class="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+        <div class="close-contact" onclick="toggleContact()">✕ COLLAPSE PANEL</div>
+        <h2 style="color:#ffd700; text-align:center; margin-bottom:20px;">Support Hub</h2>
+        <form class="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
             <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <input type="text" name="suggestions" placeholder="Any suggestions?">
-            <button type="submit" class="submit-contact">Send Transmission</button>
+            <textarea name="message" placeholder="Your Message" required style="height: 120px; width:100%; background:#222; color:white; padding:10px; border-radius:5px; margin-bottom:15px; border: 1px solid #444;"></textarea>
+            <button type="submit" style="width:100%; padding:15px; background:#ffd700; color:#1e391a; border:none; font-weight:bold; cursor:pointer; border-radius:5px; text-transform:uppercase;">Send Transmission</button>
         </form>
     </div>
 
@@ -277,81 +140,55 @@ footer:
 
         <div id="microblog-container">
             <div class="blog-header">
-                <span>Suggestions</span>
-                <span id="clearNotes" style="font-size: 0.7rem; cursor: pointer; text-decoration: underline; opacity: 0.7;">Clear All</span>
+                <span>Suggestions Log</span>
+                <span onclick="clearAll()" style="font-size:0.75rem; cursor:pointer; text-decoration:underline; color:#ffd700;">Clear History</span>
             </div>
-            
             <div class="blog-input-group">
-                <input type="text" id="blogInput" placeholder="Log a suggestion...">
+                <input type="text" id="blogInput" placeholder="Log your ideas...">
                 <button id="postBtn">Post</button>
             </div>
-
             <div id="commentList"></div>
         </div>
     </div>
 
     <script>
-        function toggleContact() {
-            document.getElementById('contactSidebar').classList.toggle('active');
-        }
-
-        // Falling Pieces Logic
-        const piecesContainer = document.getElementById('pieces');
-        const chessIcons = ['♙', '♘', '♗', '♖', '♕', '♔', '♟', '♞', '♝', '♜', '♛', '♚'];
+        function toggleContact() { document.getElementById('contactSidebar').classList.toggle('active'); }
         
-        for (let i = 0; i < 30; i++) {
-            const piece = document.createElement('div');
-            piece.className = 'piece';
-            piece.innerText = chessIcons[Math.floor(Math.random() * chessIcons.length)];
-            piece.style.left = Math.random() * 100 + '%';
-            piece.style.animationDuration = (Math.random() * 10 + 7) + 's';
-            piece.style.animationDelay = (Math.random() * 5) + 's';
-            piece.style.fontSize = (Math.random() * 2 + 1) + 'rem';
-            piecesContainer.appendChild(piece);
+        const pc = document.getElementById('pieces');
+        const icons = ['♙', '♘', '♗', '♖', '♕', '♔', '♟', '♞', '♝', '♜', '♛', '♚'];
+        for (let i = 0; i < 35; i++) {
+            const p = document.createElement('div'); 
+            p.className = 'piece'; 
+            p.innerText = icons[Math.floor(Math.random() * icons.length)];
+            p.style.left = Math.random() * 100 + '%'; 
+            p.style.animationDuration = (Math.random() * 8 + 5) + 's'; 
+            p.style.animationDelay = (Math.random() * 5) + 's';
+            pc.appendChild(p);
         }
 
-        // Suggestions Logic
-        const blogInput = document.getElementById('blogInput');
-        const postBtn = document.getElementById('postBtn');
-        const commentList = document.getElementById('commentList');
-        const clearBtn = document.getElementById('clearNotes');
-
-        window.onload = () => {
-            const saved = JSON.parse(localStorage.getItem('chessSuggestions')) || [];
-            saved.forEach(note => renderNote(note.text, note.time));
-        };
-
-        function renderNote(text, time) {
-            const div = document.createElement('div');
-            div.style.padding = "10px 0";
-            div.style.borderBottom = "1px solid rgba(255,215,0,0.1)";
-            div.style.display = "flex";
-            div.style.justifyContent = "space-between";
-            div.innerHTML = `<span style="color:white; font-size:0.9rem;">${text}</span>
-                             <small style="color:#ffd700; opacity:0.6;">${time}</small>`;
-            commentList.prepend(div);
+        const input = document.getElementById('blogInput');
+        const list = document.getElementById('commentList');
+        
+        function render(text, time) {
+            const d = document.createElement('div'); 
+            d.className = 'note-item';
+            d.innerHTML = `<span>${text}</span> <small style="color:#ffd700; opacity:0.8;">${time}</small>`;
+            list.prepend(d);
         }
 
-        postBtn.onclick = () => {
-            const val = blogInput.value.trim();
+        document.getElementById('postBtn').onclick = () => {
+            const val = input.value.trim();
             if(!val) return;
-            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-            renderNote(val, time);
-            
-            const saved = JSON.parse(localStorage.getItem('chessSuggestions')) || [];
-            saved.push({text: val, time: time});
-            localStorage.setItem('chessSuggestions', JSON.stringify(saved));
-            blogInput.value = "";
+            const now = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            render(val, now);
+            const saved = JSON.parse(localStorage.getItem('chessS')) || [];
+            saved.push({t: val, d: now});
+            localStorage.setItem('chessS', JSON.stringify(saved));
+            input.value = "";
         };
 
-        blogInput.onkeypress = (e) => { if(e.key === "Enter") postBtn.click(); };
-
-        clearBtn.onclick = () => {
-            if(confirm("Clear all suggestions?")) {
-                localStorage.removeItem('chessSuggestions');
-                commentList.innerHTML = "";
-            }
-        };
+        function clearAll() { if(confirm("Clear local suggestions?")) { localStorage.removeItem('chessS'); list.innerHTML = ""; } }
+        window.onload = () => { (JSON.parse(localStorage.getItem('chessS')) || []).forEach(n => render(n.t, n.d)); };
     </script>
 </body>
 </html>
