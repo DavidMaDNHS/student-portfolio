@@ -26,7 +26,7 @@ footer:
             position: relative;
         }
 
-        /* RIGHT-SIDE CONTACT PANEL (300px) */
+        /* RIGHT-SIDE CONTACT PANEL */
         #contactSidebar { 
             position: fixed; right: -320px; top: 0; width: 300px; height: 100%; 
             background: rgba(0, 0, 0, 0.98); border-left: 2px solid #ffd700; 
@@ -46,7 +46,7 @@ footer:
             writing-mode: vertical-rl; text-orientation: mixed; 
         }
 
-        /* LEFT-SIDE NAVIGATION (300px) */
+        /* LEFT-SIDE NAVIGATION */
         .sidebar {
             width: 300px; background: rgba(0, 0, 0, 0.95); padding: 40px 25px;
             display: flex; flex-direction: column; position: fixed; left: 0; top: 0; height: 100vh; z-index: 100;
@@ -59,7 +59,7 @@ footer:
         }
         .category-item:hover { background: #ffd700; color: #1e391a !important; }
 
-        /* DEAD CENTER CONTAINER */
+        /* CONTAINER */
         .container { 
             background: rgba(0,0,0,0.85); padding: 60px; border-radius: 15px; border: 2px solid #ffd700; 
             width: 100%; max-width: 550px; box-shadow: 0 15px 60px rgba(0,0,0,0.9);
@@ -73,7 +73,6 @@ footer:
             background: #222; color: white; border: 1px solid #444; font-size: 1.1rem;
         }
 
-        /* WARM YELLOW BUTTONS */
         .btn { 
             background: #ffcc00; color: #1e391a; padding: 20px; width: 100%; 
             border: none; font-weight: bold; cursor: pointer; border-radius: 50px; 
@@ -119,7 +118,7 @@ footer:
         <h2>Create Account</h2>
         <input type="text" id="regUser" placeholder="New Username">
         <input type="password" id="regPass" placeholder="New Password">
-        <button class="btn" onclick="simulateRegistration()">Register</button>
+        <button class="btn" onclick="handleRegistration()">Register</button>
         <span class="back-link" onclick="showBox('choiceBox')">← Back</span>
         <div id="regStatus" class="status-msg"></div>
     </div>
@@ -128,12 +127,12 @@ footer:
         <h2>Member Login</h2>
         <input type="text" id="loginUser" placeholder="Username">
         <input type="password" id="loginPass" placeholder="Password">
-        <button class="btn" onclick="checkLogin()">Login</button>
+        <button class="btn" onclick="handleLogin()">Login</button>
         <span class="back-link" onclick="showBox('choiceBox')">← Back</span>
     </div>
 
     <div class="container hidden" id="quizBox">
-        <h3>Training Profile</h3>
+        <h3 id="welcomeHeader">Training Profile</h3>
         <label>What is your skill level?</label>
         <select id="skillLevel">
             <option value="">Select Level...</option>
@@ -147,38 +146,83 @@ footer:
 
     <script>
         function toggleContact() { document.getElementById('contactSidebar').classList.toggle('active'); }
+        
         function showBox(id) {
             document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
         }
 
-        let registeredUser = "admin"; 
-        let registeredPass = "1234";
+        // INITIALIZE STORAGE
+        const STORAGE_KEY = "chess_academy_users";
+        const SESSION_KEY = "chess_academy_session";
 
-        function simulateRegistration() {
-            const user = document.getElementById('regUser').value;
-            const pass = document.getElementById('regPass').value;
-            if (user.length < 3) { alert("Invalid Username"); return; }
-            document.getElementById('regStatus').innerText = "Registering...";
-            setTimeout(() => {
-                registeredUser = user; registeredPass = pass;
-                document.getElementById('regStatus').innerText = "Success! Please Login.";
-                setTimeout(() => showBox('loginBox'), 1000);
-            }, 800);
+        function getUsers() {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
         }
 
-        function checkLogin() {
-            const user = document.getElementById('loginUser').value;
-            const pass = document.getElementById('loginPass').value;
-            if (user === registeredUser && pass === registeredPass) {
+        // AUTO-LOGIN ON REFRESH
+        window.onload = function() {
+            const activeSession = localStorage.getItem(SESSION_KEY);
+            if (activeSession) {
+                document.getElementById('welcomeHeader').innerText = `Welcome Back, ${activeSession}`;
                 showBox('quizBox');
-            } else { alert("Incorrect Credentials"); }
+            }
+        };
+
+        function handleRegistration() {
+            const user = document.getElementById('regUser').value.trim();
+            const pass = document.getElementById('regPass').value.trim();
+            const status = document.getElementById('regStatus');
+
+            if (user.length < 3 || pass.length < 4) {
+                alert("Username must be 3+ chars and Password 4+ chars.");
+                return;
+            }
+
+            let users = getUsers();
+            if (users.find(u => u.username === user)) {
+                alert("Username already exists!");
+                return;
+            }
+
+            status.innerText = "Encrypting Data...";
+            
+            setTimeout(() => {
+                users.push({ username: user, password: pass });
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+                status.innerText = "Success! Please Login.";
+                setTimeout(() => showBox('loginBox'), 800);
+            }, 1000);
+        }
+
+        function handleLogin() {
+            const user = document.getElementById('loginUser').value.trim();
+            const pass = document.getElementById('loginPass').value.trim();
+            const users = getUsers();
+
+            const foundUser = users.find(u => u.username === user && u.password === pass);
+
+            if (foundUser) {
+                localStorage.setItem(SESSION_KEY, user); // Persistent Session
+                document.getElementById('welcomeHeader').innerText = `Welcome, ${user}`;
+                showBox('quizBox');
+            } else {
+                alert("Incorrect Credentials or Account does not exist.");
+            }
         }
 
         function saveAndProceed() {
             const skill = document.getElementById('skillLevel').value;
+            const currentUser = localStorage.getItem(SESSION_KEY);
+
             if(!skill) { alert("Please select a level!"); return; }
-            localStorage.setItem('chessItinerary', JSON.stringify({ level: skill, user: registeredUser }));
+            
+            // Save the itinerary data permanently
+            localStorage.setItem('chessItinerary', JSON.stringify({ 
+                level: skill, 
+                user: currentUser 
+            }));
+
             window.location.href = "{{ site.baseurl }}/chess/selection/";
         }
     </script>
