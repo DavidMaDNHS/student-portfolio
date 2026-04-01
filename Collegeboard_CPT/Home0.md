@@ -1,11 +1,3 @@
-To add a "Contact Us" feature to your home page without interfering with the centered "Chess Cosmos" layout, we can use a slide-out drawer or a sidebar attached to the left edge of the screen.
-
-Since you mentioned you want to receive the email, I've added a form that uses Formspree. It's a free service that lets you receive form submissions as emails without needing a backend server.
-
-Updated Home Page Code
-Replace your current code with this version. It adds the "Contact" button on the left and the hidden contact panel.
-
-HTML
 ---
 layout: post
 title: "Chess"
