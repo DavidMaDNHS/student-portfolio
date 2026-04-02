@@ -61,27 +61,27 @@ footer:
 
         /* CONTAINER */
         .container { 
-            background: rgba(0,0,0,0.85); padding: 60px; border-radius: 15px; border: 2px solid #ffd700; 
-            width: 100%; max-width: 550px; box-shadow: 0 15px 60px rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.85); padding: 50px; border-radius: 15px; border: 2px solid #ffd700; 
+            width: 100%; max-width: 500px; box-shadow: 0 15px 60px rgba(0,0,0,0.9);
             position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 50;
         }
-        h2, h3 { color: #ffd700; text-align: center; margin-bottom: 30px; font-size: 2.2rem; }
-        label { display: block; margin-top: 20px; color: #ffd700; font-weight: bold; text-align: center; font-size: 1.2rem; }
+        h2, h3 { color: #ffd700; text-align: center; margin-bottom: 25px; font-size: 2rem; }
+        label { display: block; margin-top: 15px; color: #ffd700; font-weight: bold; text-align: center; font-size: 1.1rem; }
 
         input, select { 
-            width: 100%; padding: 18px; margin: 15px 0; border-radius: 10px; 
-            background: #222; color: white; border: 1px solid #444; font-size: 1.1rem;
+            width: 100%; padding: 15px; margin: 10px 0; border-radius: 8px; 
+            background: #222; color: white; border: 1px solid #444; font-size: 1rem;
         }
 
         .btn { 
-            background: #ffcc00; color: #1e391a; padding: 20px; width: 100%; 
+            background: #ffcc00; color: #1e391a; padding: 18px; width: 100%; 
             border: none; font-weight: bold; cursor: pointer; border-radius: 50px; 
-            margin-top: 25px; transition: 0.3s; font-size: 1.2rem; text-transform: uppercase;
+            margin-top: 20px; transition: 0.3s; font-size: 1.1rem; text-transform: uppercase;
         }
         .btn:hover { transform: scale(1.05); background: #fff; }
 
-        .back-link { display: block; text-align: center; margin-top: 25px; color: #ffd700; cursor: pointer; text-decoration: underline; font-size: 1rem; }
-        .status-msg { text-align: center; margin-top: 20px; font-weight: bold; color: #ffd700; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #ffd700; cursor: pointer; text-decoration: underline; font-size: 0.9rem; }
+        .status-msg { text-align: center; margin-top: 15px; font-weight: bold; color: #ffd700; }
         .hidden { display: none; }
     </style>
 </head>
@@ -92,7 +92,7 @@ footer:
         <div class="close-contact" onclick="toggleContact()">✕ COLLAPSE PANEL</div>
         <h2 style="font-size: 1.4rem; text-align: center; color: #ffd700; margin-bottom: 20px;">Support Hub</h2>
         <form action="https://formspree.io/f/YOUR_ID" method="POST">
-            <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 15px; background: #222; color: white; border-radius: 8px; margin-bottom: 15px;">
+            <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required style="height: 120px; width:100%; background:#222; color:white; padding:15px; border-radius:8px; margin-bottom:15px; border:1px solid #444;"></textarea>
             <button type="submit" style="width:100%; padding:18px; background:#ffcc00; color:#1e391a; font-weight:bold; cursor:pointer; border-radius:8px; text-transform: uppercase;">Send Transmission</button>
         </form>
@@ -105,20 +105,20 @@ footer:
         <a href="{{ site.baseurl }}/chess/midgame/" class="category-item">⚔️ Midgame</a>
         <a href="{{ site.baseurl }}/chess/endgame/" class="category-item">🏁 Endgame</a>
         <a href="{{ site.baseurl }}/chess/TS/" class="category-item">🧠 Tactics & Strategies</a>
-        <a href="{{ site.baseurl }}/chess/overview/" class="category-item">📖 Tool Overview</a>
     </div>
 
     <div class="container" id="choiceBox">
-        <h2>Welcome</h2>
-        <button class="btn" onclick="showBox('regBox')">New Registration</button>
-        <button class="btn" onclick="showBox('loginBox')">Member Login</button>
+        <h2>Grandmaster Entry</h2>
+        <button class="btn" onclick="showBox('regBox')">Create New Account</button>
+        <button class="btn" onclick="showBox('loginBox')">Login to Account</button>
     </div>
 
     <div class="container hidden" id="regBox">
-        <h2>Create Account</h2>
-        <input type="text" id="regUser" placeholder="New Username">
-        <input type="password" id="regPass" placeholder="New Password">
-        <button class="btn" onclick="handleRegistration()">Register</button>
+        <h2>New Registration</h2>
+        <input type="text" id="regUser" placeholder="Desired Username">
+        <input type="email" id="regEmail" placeholder="Email Address">
+        <input type="password" id="regPass" placeholder="Secure Password">
+        <button class="btn" onclick="handleRegistration()">Register Account</button>
         <span class="back-link" onclick="showBox('choiceBox')">← Back</span>
         <div id="regStatus" class="status-msg"></div>
     </div>
@@ -127,24 +127,28 @@ footer:
         <h2>Member Login</h2>
         <input type="text" id="loginUser" placeholder="Username">
         <input type="password" id="loginPass" placeholder="Password">
-        <button class="btn" onclick="handleLogin()">Login</button>
+        <button class="btn" onclick="handleLogin()">Sign In</button>
         <span class="back-link" onclick="showBox('choiceBox')">← Back</span>
     </div>
 
     <div class="container hidden" id="quizBox">
         <h3 id="welcomeHeader">Training Profile</h3>
-        <label>What is your skill level?</label>
+        <label>Set your training level:</label>
         <select id="skillLevel">
-            <option value="">Select Level...</option>
-            <option value="400">Beginner (Under 400)</option>
-            <option value="800">Intermediate (400 - 800)</option>
-            <option value="1500">Advanced (800 - 1500)</option>
-            <option value="Expert">Expert (1500+)</option>
+            <option value="">Choose your rank...</option>
+            <option value="Beginner">Beginner (Under 400)</option>
+            <option value="Intermediate">Intermediate (400 - 1200)</option>
+            <option value="Advanced">Advanced (1200 - 2000)</option>
+            <option value="Expert">Master (2000+)</option>
         </select>
-        <button class="btn" onclick="saveAndProceed()">Finalize & Start</button>
+        <button class="btn" onclick="saveAndProceed()">Launch Training</button>
+        <span class="back-link" onclick="logout()">Log Out / Switch Account</span>
     </div>
 
     <script>
+        const STORAGE_KEY = "chess_academy_users";
+        const SESSION_KEY = "chess_academy_session";
+
         function toggleContact() { document.getElementById('contactSidebar').classList.toggle('active'); }
         
         function showBox(id) {
@@ -152,15 +156,11 @@ footer:
             document.getElementById(id).classList.remove('hidden');
         }
 
-        // INITIALIZE STORAGE
-        const STORAGE_KEY = "chess_academy_users";
-        const SESSION_KEY = "chess_academy_session";
-
         function getUsers() {
             return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
         }
 
-        // AUTO-LOGIN ON REFRESH
+        // AUTO-CHECK SESSION: If logged in, skip to Quiz
         window.onload = function() {
             const activeSession = localStorage.getItem(SESSION_KEY);
             if (activeSession) {
@@ -171,28 +171,30 @@ footer:
 
         function handleRegistration() {
             const user = document.getElementById('regUser').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
             const pass = document.getElementById('regPass').value.trim();
             const status = document.getElementById('regStatus');
 
-            if (user.length < 3 || pass.length < 4) {
-                alert("Username must be 3+ chars and Password 4+ chars.");
+            if (!user || !email || !pass) {
+                alert("Please fill all fields.");
                 return;
             }
 
             let users = getUsers();
             if (users.find(u => u.username === user)) {
-                alert("Username already exists!");
+                alert("Username is taken!");
                 return;
             }
 
-            status.innerText = "Encrypting Data...";
+            status.innerText = "Securing account...";
             
             setTimeout(() => {
-                users.push({ username: user, password: pass });
+                // Store user object with email for the profile page
+                users.push({ username: user, email: email, password: pass, photo: "" });
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
-                status.innerText = "Success! Please Login.";
-                setTimeout(() => showBox('loginBox'), 800);
-            }, 1000);
+                status.innerText = "Account Created! Redirecting to Login...";
+                setTimeout(() => showBox('loginBox'), 1000);
+            }, 800);
         }
 
         function handleLogin() {
@@ -203,11 +205,11 @@ footer:
             const foundUser = users.find(u => u.username === user && u.password === pass);
 
             if (foundUser) {
-                localStorage.setItem(SESSION_KEY, user); // Persistent Session
+                localStorage.setItem(SESSION_KEY, user); // SET PERMANENT SESSION
                 document.getElementById('welcomeHeader').innerText = `Welcome, ${user}`;
                 showBox('quizBox');
             } else {
-                alert("Incorrect Credentials or Account does not exist.");
+                alert("Invalid Username or Password.");
             }
         }
 
@@ -215,15 +217,20 @@ footer:
             const skill = document.getElementById('skillLevel').value;
             const currentUser = localStorage.getItem(SESSION_KEY);
 
-            if(!skill) { alert("Please select a level!"); return; }
+            if(!skill) { alert("Please select your level!"); return; }
             
-            // Save the itinerary data permanently
+            // Save itinerary linked to this session
             localStorage.setItem('chessItinerary', JSON.stringify({ 
                 level: skill, 
                 user: currentUser 
             }));
 
             window.location.href = "{{ site.baseurl }}/chess/selection/";
+        }
+
+        function logout() {
+            localStorage.removeItem(SESSION_KEY);
+            location.reload();
         }
     </script>
 </body>
