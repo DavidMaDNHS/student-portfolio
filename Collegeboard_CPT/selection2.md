@@ -22,7 +22,6 @@ footer:
 
         .container { 
             max-width: 1100px; width: 90%;
-            /* Pulled way up to 100px to ensure it's visible immediately */
             margin: 100px auto 40px auto; 
             text-align: center;
         }
@@ -95,9 +94,10 @@ footer:
 
         .diff-btn {
             background: #2c3e50; color: white; border: 1px solid #ffd700;
-            padding: 8px 12px; margin: 4px; font-size: 0.75rem; border-radius: 5px; 
+            padding: 6px 10px; margin: 2px; font-size: 0.7rem; border-radius: 5px; 
             cursor: pointer; font-weight: bold; transition: 0.2s;
         }
+        .diff-btn:hover { background: #ffd700; color: #000; }
 
         /* --- CENTERED LESSON GRID --- */
         .places-grid { 
@@ -139,10 +139,11 @@ footer:
     <div class="itinerary-tracker">
         <h3 style="color:#ffd700; text-align:center; margin-top:0;">Live Plan</h3>
         <div style="margin-bottom: 20px; text-align: center; border-bottom: 1px solid #444; padding-bottom: 10px;">
-            <div style="font-size: 0.7rem; color: #ffd700; font-weight: bold; margin-bottom: 5px;">SWITCH LEVEL</div>
+            <div style="font-size: 0.65rem; color: #ffd700; font-weight: bold; margin-bottom: 5px;">SWITCH LEVEL</div>
             <button class="diff-btn" onclick="updateLevel('Beginner')">BEG</button>
             <button class="diff-btn" onclick="updateLevel('Intermediate')">INT</button>
             <button class="diff-btn" onclick="updateLevel('Advanced')">ADV</button>
+            <button class="diff-btn" onclick="updateLevel('Master')" style="border-color: #ff4500;">MST</button>
         </div>
         <div class="itinerary-item">
             <div style="font-size: 0.7rem; color: #ffd700; font-weight: bold;">STUDENT</div>
@@ -162,15 +163,23 @@ footer:
 
     <script>
         const chessLessons = [
-            { name: "Piece Movement", type: "Beginner", desc: "Master how the 6 pieces capture.", icon: "🐣" },
-            { name: "Board Anatomy", type: "Beginner", desc: "Files, ranks, and center control.", icon: "🗺️" },
-            { name: "First Checkmate", type: "Beginner", desc: "The ladder mate and basic wins.", icon: "🍼" },
-            { name: "Scholar's Mate", type: "Intermediate", desc: "The classic 4-move attack.", icon: "🪤" },
-            { name: "Tactical Forks", type: "Intermediate", desc: "Winning two pieces at once.", icon: "🍴" },
-            { name: "Castling Rules", type: "Intermediate", desc: "Keeping your King safe early.", icon: "🏰" },
-            { name: "Positional Play", type: "Advanced", desc: "Outposts and weak squares.", icon: "🧠" },
-            { name: "Endgame Grinds", type: "Advanced", desc: "Lucena and Philidor positions.", icon: "⏳" },
-            { name: "Sicilian Defense", type: "Advanced", desc: "Deep theory for black.", icon: "📖" }
+            { name: "Piece Movement", type: "Beginner", desc: "Master how the 6 pieces move & capture.", icon: "🐣" },
+            { name: "Special Moves", type: "Beginner", desc: "Learn castling, pawn promotion, and en passant.", icon: "🗺️" },
+            { name: "First Checkmate", type: "Beginner", desc: "Learn to win the game.", icon: "🍼" },
+            { name: "Setup the Board & Pieces", type: "Beginner", desc: "Learn to setup the board & pieces.", icon: "♟" },
+            { name: "Opening Principles", type: "Intermediate", desc: "Learn basic strategies in the opening.", icon: "🪤" },
+            { name: "Midgame & Tactics", type: "Intermediate", desc: "Learn midgame strategies and tactics to win.", icon: "🍴" },
+            { name: "Endgame & Win", type: "Intermediate", desc: "Learn basic endgame strategies to win the game.", icon: "🏰" },
+             { name: "Checkmate Patterns", type: "Intermediate", desc: "Learn to checkmate with a queen, rook, and 2 bishops.", icon: "♔" },
+            { name: "Positional Play", type: "Advanced", desc: "Take advantage in the game by building better positions.", icon: "🧠" },
+            { name: "Candidate Moves", type: "Advanced", desc: "Find the Best Move in a position.", icon: "⏳" },
+            { name: "Serious Opening Study", type: "Advanced", desc: "Deep theory for good openings like Sicilian Defense or the Italian Game.", icon: "📖" },
+            { name: "Attacking the King", type: "Advanced", desc: "Learn to overwhelm the opponent and win the game.", icon: "⚔️" },
+            /* MASTER LEVEL LESSONS */
+            { name: "Pawn structures", type: "Master", desc: "Importance of pawn structures.", icon: "🛡️" },
+            { name: "Weaknesses and Attacks in Midgame", type: "Master", desc: "Attack opponent's weaknesses and avoid creating them.", icon: "💣" },
+            { name: "Endgame Mastery", type: "Master", desc: "Win games with beautiful endgame moves.", icon: "🏆" },
+            { name: "Combating lost positions", type: "Master", desc: "Go for a draw or even a win in a lost position.", icon: "👑" }
         ];
 
         function updateLevel(newLvl) {
