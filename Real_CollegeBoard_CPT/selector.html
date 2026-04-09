@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Club Selector</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #f0f0f0; padding: 50px; }
+        .app-box { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; }
+        input { padding: 10px; width: 200px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="app-box">
+        <h1>School Club Finder</h1>
+        <p>Type a club name to find its room:</p>
+        
+        <input type="text" id="userChoice" placeholder="Ex: Chess Club">
+        <button onclick="findClub()">Find Room</button>
+
+        <h3 id="resultText"></h3>
+    </div>
+
+    <script>
+        // DATA (Skill A)
+        var clubNames = ["Chess Club", "Art Club", "Coding Club", "Drama Club"];
+        var clubDetails = ["Room 101 - Mondays", "Studio B - Tuesdays", "Lab 4 - Wednesdays", "Theater - Thursdays"];
+
+        // THE BRAIN (Skill B)
+        function findClub() {
+            var typedName = document.getElementById("userChoice").value;
+            var display = document.getElementById("resultText");
+
+            // THE LOOP: It checks each item in the list
+            for (var i = 0; i < clubNames.length; i++) {
+                
+                // THE IF-STATEMENT: It checks if it matches
+                if (typedName == clubNames[i]) {
+                    display.innerText = "Meeting: " + clubDetails[i];
+                    return; // Stop once we find it!
+                }
+            }
+            
+            // If the loop finishes and finds nothing
+            display.innerText = "Club not found. Check your spelling!";
+        }
+    </script>
+
+</body>
+</html>
