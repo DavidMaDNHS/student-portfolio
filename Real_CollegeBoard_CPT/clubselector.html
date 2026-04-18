@@ -4,8 +4,8 @@
     <title>Club Selector</title>
     <style>
         /* directing what the box should look like, including fonts, background colors, box colors, color of buttons */ 
-        body { font-family: sans-serif; text-align: center; background: #f0f0f0; padding: 50px; }
-        .app-box { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; }
+        body { font-family: "arial"; text-align: center; background: #f0f0f0; padding: 50px; }
+        .app-box { background: white; padding: 50px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; }
         input { padding: 10px; width: 200px; border: 1px solid #ccc; border-radius: 5px; }
         button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
     </style>
@@ -14,7 +14,7 @@
 
     <div class="app-box">
         <h1>School Club Finder</h1>
-        <p>Type a club name to find its room:</p>
+        <p>Type a club name to find its room and schedule:</p>
         
         <input type="text" id="userChoice" placeholder="Ex: Chess Club">
         <button onclick="findClub()">Find Room</button>
@@ -24,8 +24,8 @@
 
     <script>
         // DATA (Skill A)
-        var clubNames = ["Chess Club", "Art Club", "Coding Club", "Drama Club"];
-        var clubDetails = ["Room 101 - Mondays", "Studio B - Tuesdays", "Lab 4 - Wednesdays", "Theater - Thursdays"];
+        var clubNames = ["Chess Club", "Art Club", "Coding Club", "Drama Club", "Design Club", "Science Club", "Math Club"];
+        var clubDetails = ["Room 101 - Mondays", "Studio B - Tuesdays", "Lab 4 - Wednesdays", "Theater - Thursdays", "Room 202 - Fridays", "Lab 1 - Mondays", "Room 303 - Wednesdays"];
 
         // THE BRAIN (Skill B)
         function findClub() {
